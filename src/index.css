@@ -1,0 +1,268 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@layer base {
+  :root {
+    /* Page background: Deep charcoal #0B0F14 */
+    --background: 216 31% 6%;
+    --foreground: 210 40% 98%;
+
+    /* Card/Box background: Dark slate #131A24 - LIGHTER than background */
+    --card: 216 30% 11%;
+    --card-foreground: 210 40% 98%;
+
+    /* Alternate card for rhythm: #151E2B */
+    --card-alt: 216 28% 13%;
+
+    --popover: 216 30% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 263 70% 58%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 216 25% 15%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 216 22% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 330 80% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 55% 45%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 216 20% 18%;
+    --input: 216 22% 14%;
+    --ring: 263 70% 58%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradient colors - Magic/Creative zone */
+    --gradient-purple: 263 70% 58%;
+    --gradient-pink: 330 80% 60%;
+    --gradient-orange: 25 95% 53%;
+
+    /* Purple border colors for cards */
+    --purple-border: 263 70% 58%;
+    --purple-border-subtle: 263 50% 40%;
+
+    /* Trust anchor colors - Machine/System zone */
+    --slate: 216 30% 11%;
+    --slate-foreground: 215 20% 75%;
+    --slate-muted: 216 25% 15%;
+    --slate-border: 216 20% 20%;
+    
+    /* System status colors - controlled, not neon */
+    --success: 152 50% 38%;
+    --success-foreground: 152 60% 95%;
+    --warning: 38 85% 48%;
+    --warning-foreground: 38 92% 10%;
+    --info: 210 55% 48%;
+    --info-foreground: 210 60% 95%;
+
+    /* Glass effect - for hero/prompt only */
+    --glass-bg: 216 30% 11%;
+    --glass-border: 263 70% 58%;
+
+    /* Sidebar - Trust anchor zone */
+    --sidebar-background: 216 32% 7%;
+    --sidebar-foreground: 215 20% 75%;
+    --sidebar-primary: 263 70% 58%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 216 28% 13%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 216 22% 14%;
+    --sidebar-ring: 263 70% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Gradient text - ONLY for hero/CTA/magic zones */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(263 70% 58%), hsl(330 80% 60%));
+  }
+
+  /* Gradient backgrounds - sparingly used */
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(263 70% 58%), hsl(330 80% 60%));
+  }
+
+  .gradient-primary-hover {
+    background: linear-gradient(135deg, hsl(263 70% 65%), hsl(330 80% 67%));
+  }
+
+  /* Trust/Slate zone backgrounds */
+  .bg-slate-zone {
+    background: hsl(var(--slate));
+  }
+
+  .bg-slate-muted {
+    background: hsl(var(--slate-muted));
+  }
+
+  /* Content card - MAIN CARD STYLE - lighter than background with purple border */
+  .content-card {
+    @apply rounded-2xl border transition-all duration-300;
+    background: hsl(var(--card));
+    border-color: hsl(var(--purple-border) / 0.25);
+  }
+
+  .content-card:hover {
+    border-color: hsl(var(--purple-border) / 0.5);
+    box-shadow: 0 0 0 1px hsl(var(--purple-border) / 0.2),
+                0 8px 30px hsl(var(--purple-border) / 0.12);
+  }
+
+  /* Alternate card for visual rhythm */
+  .content-card-alt {
+    @apply rounded-2xl border transition-all duration-300;
+    background: hsl(var(--card-alt));
+    border-color: hsl(var(--purple-border) / 0.2);
+  }
+
+  /* Glass effect - ONLY for hero prompt box */
+  .glass {
+    @apply backdrop-blur-xl border;
+    background: hsl(var(--glass-bg) / 0.8);
+    border-color: hsl(var(--glass-border) / 0.3);
+  }
+
+  .glass-card {
+    @apply backdrop-blur-xl border rounded-2xl;
+    background: hsl(var(--card));
+    border-color: hsl(var(--purple-border) / 0.25);
+  }
+
+  .glass-card:hover {
+    border-color: hsl(var(--purple-border) / 0.5);
+  }
+
+  /* Flat cards - for system/admin zones */
+  .flat-card {
+    @apply rounded-xl border;
+    background: hsl(var(--card));
+    border-color: hsl(var(--slate-border));
+  }
+
+  /* Glow effects - ONLY for hero/prompt areas */
+  .glow-primary {
+    box-shadow: 0 0 0 1px hsl(var(--purple-border) / 0.3),
+                0 0 40px hsl(263 70% 58% / 0.25),
+                0 0 80px hsl(330 80% 60% / 0.15);
+  }
+
+  .glow-subtle {
+    box-shadow: 0 0 0 1px hsl(var(--purple-border) / 0.2),
+                0 8px 30px hsl(var(--purple-border) / 0.12);
+  }
+
+  /* Hover glow - only for important interactive cards */
+  .glow-hover:hover {
+    box-shadow: 0 0 0 1px hsl(var(--purple-border) / 0.3),
+                0 8px 30px hsl(var(--purple-border) / 0.15);
+  }
+
+  /* Status badges - controlled, professional */
+  .status-success {
+    @apply text-sm font-medium px-2.5 py-0.5 rounded-md;
+    background: hsl(var(--success) / 0.15);
+    color: hsl(var(--success));
+  }
+
+  .status-warning {
+    @apply text-sm font-medium px-2.5 py-0.5 rounded-md;
+    background: hsl(var(--warning) / 0.15);
+    color: hsl(var(--warning));
+  }
+
+  .status-error {
+    @apply text-sm font-medium px-2.5 py-0.5 rounded-md;
+    background: hsl(var(--destructive) / 0.15);
+    color: hsl(var(--destructive));
+  }
+
+  .status-info {
+    @apply text-sm font-medium px-2.5 py-0.5 rounded-md;
+    background: hsl(var(--info) / 0.15);
+    color: hsl(var(--info));
+  }
+
+  /* Animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent, hsl(var(--foreground) / 0.1), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  /* Delay utilities */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+}

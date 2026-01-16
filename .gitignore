@@ -1,0 +1,96 @@
+# ===============================
+# Build / Distribution
+# ===============================
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ===============================
+# Node / Express / Backend
+# ===============================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.env
+.env.*
+!.env.example
+
+# ===============================
+# MongoDB
+# ===============================
+data/
+dump/
+
+# ===============================
+# React / Frontend
+# ===============================
+node_modules/
+build/
+dist/
+.vite/
+.cache/
+
+# ===============================
+# Next.js (if used)
+# ===============================
+.next/
+out/
+
+# ===============================
+# Logs
+# ===============================
+logs/
+*.log
+
+# ===============================
+# OS / System
+# ===============================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# ===============================
+# IDE / Editor
+# ===============================
+.vscode/
+.idea/
+*.iml
+
+# ===============================
+# Testing / Coverage
+# ===============================
+coverage/
+.nyc_output/
+
+# ===============================
+# TypeScript
+# ===============================
+*.tsbuildinfo
+
+# ===============================
+# Firebase / Cloud
+# ===============================
+.firebase/
+.firebaserc
+
+# ===============================
+# Misc
+# ===============================
+tmp/
+temp/
+
