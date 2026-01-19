@@ -1,5 +1,6 @@
 import { ExternalLink, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const projects = [
   {
@@ -51,10 +52,12 @@ export function CommunitySection() {
           {projects.map((project, index) => (
             <div
               key={project.name}
-              className={`${index % 2 === 0 ? 'content-card' : 'content-card-alt'} p-4 flex items-center justify-between glow-hover group`}
+              className={`${index % 2 === 0 ? "content-card" : "content-card-alt"} p-4 flex items-center justify-between glow-hover group`}
             >
               <div className="flex items-center gap-4">
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${project.color} flex items-center justify-center`}>
+                <div
+                  className={`w-12 h-12 rounded-xl bg-gradient-to-br ${project.color} flex items-center justify-center`}
+                >
                   <span className="text-xl">✦</span>
                 </div>
                 <div>
@@ -72,7 +75,11 @@ export function CommunitySection() {
                   </div>
                 </div>
               </div>
-              <Button variant="outline" size="sm" className="gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+              <Button
+                variant="outline"
+                size="sm"
+                className="gap-2 opacity-0 group-hover:opacity-100 transition-opacity"
+              >
                 View Live
                 <ExternalLink className="w-4 h-4" />
               </Button>
@@ -81,9 +88,11 @@ export function CommunitySection() {
         </div>
 
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg">
-            Explore All Projects
-          </Button>
+          <Link to="/showcase">
+            <Button variant="outline" size="lg">
+              Explore All Projects
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
