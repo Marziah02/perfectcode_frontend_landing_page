@@ -15,7 +15,7 @@ export function HeroSection() {
   const [isPrivate, setIsPrivate] = useState(true);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-40 overflow-hidden">
+    <section className="relative flex items-center justify-center pt-40 overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-hero-glow opacity-60" />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-purple/20 rounded-full blur-3xl animate-pulse-glow" />
@@ -129,43 +129,6 @@ export function HeroSection() {
                 </button>
               ))}
             </div>
-          </div>
-        </div>
-
-        {/* Value cards - clear separation from background */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-20 animate-fade-in-up delay-500">
-          <div className="content-card p-6 text-center glow-hover">
-            <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl">🧪</span>
-            </div>
-            <h3 className="font-semibold text-foreground mb-2">
-              Sandbox-first
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              No infrastructure needed to start. Build and iterate freely.
-            </p>
-          </div>
-          <div className="content-card p-6 text-center glow-hover">
-            <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl">✨</span>
-            </div>
-            <h3 className="font-semibold text-foreground mb-2">
-              Working preview every time
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              Get a functional preview URL, not just code snippets.
-            </p>
-          </div>
-          <div className="content-card p-6 text-center glow-hover">
-            <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl">💬</span>
-            </div>
-            <h3 className="font-semibold text-foreground mb-2">
-              Iterate by chat
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              Refine your app through natural conversation.
-            </p>
           </div>
         </div>
       </div>
