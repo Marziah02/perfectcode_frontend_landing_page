@@ -30,7 +30,16 @@ const steps = [
 
 export function DemoSection() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
   const videoRef = useRef(null);
+
+  // Formatting seconds to MM:SS
+  const formatTime = (timeInSeconds) => {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = Math.floor(timeInSeconds % 60);
+    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+  };
 
   const togglePlay = () => {
     if (videoRef.current) {
@@ -39,6 +48,26 @@ export function DemoSection() {
       } else {
         videoRef.current.play();
       }
+    }
+  };
+
+  const handleSeek = (e) => {
+    const time = parseFloat(e.target.value);
+    if (videoRef.current) {
+      videoRef.current.currentTime = time;
+      setCurrentTime(time);
+    }
+  };
+
+  const onTimeUpdate = () => {
+    if (videoRef.current) {
+      setCurrentTime(videoRef.current.currentTime);
+    }
+  };
+
+  const onLoadedMetadata = () => {
+    if (videoRef.current) {
+      setDuration(videoRef.current.duration);
     }
   };
 
@@ -81,6 +110,8 @@ export function DemoSection() {
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
                 onEnded={() => setIsPlaying(false)}
+                onTimeUpdate={onTimeUpdate}
+                onLoadedMetadata={onLoadedMetadata}
               />
 
               {/* THUMBNAIL OVERLAY (Shows when paused) */}
@@ -112,11 +143,29 @@ export function DemoSection() {
 
               {/* HOVER PLAYER CONTROLS (Visible when playing or paused) */}
               <div className="absolute inset-x-0 bottom-0 z-20 p-6 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {/* SCRUBBER BAR */}
+                <div className="mb-4 space-y-1">
+                  <div className="flex justify-between text-[10px] font-mono text-slate-300 px-1">
+                    <span>{formatTime(currentTime)}</span>
+                    <span>{formatTime(duration)}</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="0"
+                    max={duration || 0}
+                    value={currentTime}
+                    onChange={handleSeek}
+                    className="w-full h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-purple-500 hover:accent-purple-400 transition-all [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white"
+                    style={{
+                      background: `linear-gradient(to right, #a855f7 ${(currentTime / duration) * 100}%, #334155 ${(currentTime / duration) * 100}%)`,
+                    }}
+                  />
+                </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
                     <button
                       onClick={togglePlay}
-                      className="w-10 h-10 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-all"
+                      className="w-10 h-10 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-all active:scale-90"
                     >
                       {isPlaying ? (
                         <Pause size={20} fill="white" />

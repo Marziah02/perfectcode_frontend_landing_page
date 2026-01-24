@@ -2,21 +2,21 @@ import { Globe, Rocket, FileText } from "lucide-react";
 
 const platforms = [
   {
-    icon: Rocket,
+    icon: "/images/webapp.svg",
     title: "Web Apps",
     description: "Full-featured web applications with modern UI",
     examples: ["SaaS dashboards", "Admin panels", "Internal tools"],
     gradient: "from-gradient-purple to-gradient-pink",
   },
   {
-    icon: Globe,
+    icon: "/images/saasp.svg",
     title: "SaaS Products",
     description: "Complete software-as-a-service solutions",
     examples: ["User authentication", "Billing integration", "API endpoints"],
     gradient: "from-gradient-pink to-gradient-orange",
   },
   {
-    icon: FileText,
+    icon: "/images/landpage.svg",
     title: "Landing Pages",
     description: "High-converting marketing pages",
     examples: ["Product launches", "Waitlist pages", "Portfolio sites"],
@@ -43,14 +43,27 @@ export function PlatformSection() {
               key={platform.title}
               className="content-card p-8 glow-hover group"
             >
-              <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${platform.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                <platform.icon className="w-8 h-8 text-primary-foreground" />
+              <div
+                className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${platform.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
+              >
+                <img
+                  className="h-full w-8"
+                  src={platform.icon}
+                  alt={platform.title}
+                />
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-3">{platform.title}</h3>
-              <p className="text-muted-foreground mb-6">{platform.description}</p>
+              <h3 className="text-2xl font-bold text-foreground mb-3">
+                {platform.title}
+              </h3>
+              <p className="text-muted-foreground mb-6">
+                {platform.description}
+              </p>
               <ul className="space-y-2">
                 {platform.examples.map((example) => (
-                  <li key={example} className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <li
+                    key={example}
+                    className="flex items-center gap-2 text-sm text-muted-foreground"
+                  >
                     <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                     {example}
                   </li>

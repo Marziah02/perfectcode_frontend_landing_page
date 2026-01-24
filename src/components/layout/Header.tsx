@@ -20,9 +20,13 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">
-                P
+            <div className="w-8 h-8 rounded-lg  flex items-center justify-center">
+              <span className=" font-bold text-lg">
+                <img
+                  className="h-full w-8"
+                  src="/images/perfectcodelogo.svg"
+                  alt="footer."
+                />
               </span>
             </div>
             <span className="font-semibold text-lg text-foreground">

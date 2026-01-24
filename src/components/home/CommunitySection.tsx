@@ -8,30 +8,35 @@ const projects = [
     category: "SaaS",
     updated: "2 hours ago",
     color: "from-gradient-purple to-gradient-pink",
+    src: "/images/1_ecom.svg",
   },
   {
     name: "Booking Platform",
     category: "Marketplace",
     updated: "4 hours ago",
     color: "from-gradient-pink to-gradient-orange",
+    src: "/images/2_bookplat.svg",
   },
   {
     name: "Portfolio Template",
     category: "Website",
     updated: "6 hours ago",
     color: "from-gradient-orange to-gradient-purple",
+    src: "/images/3_port.svg",
   },
   {
     name: "CRM System",
     category: "Internal Tool",
     updated: "8 hours ago",
     color: "from-gradient-purple to-gradient-pink",
+    src: "/images/4_crm.svg",
   },
   {
     name: "Task Manager",
     category: "Productivity",
     updated: "12 hours ago",
     color: "from-gradient-pink to-gradient-orange",
+    src: "/images/5_tsk.svg",
   },
 ];
 
@@ -58,7 +63,13 @@ export function CommunitySection() {
                 <div
                   className={`w-12 h-12 rounded-xl bg-gradient-to-br ${project.color} flex items-center justify-center`}
                 >
-                  <span className="text-xl">✦</span>
+                  <span className="text-xl">
+                    <img
+                      className="h-full w-6"
+                      src={project.src}
+                      alt="footer."
+                    />
+                  </span>
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">

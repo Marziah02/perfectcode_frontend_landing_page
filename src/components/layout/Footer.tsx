@@ -1,27 +1,48 @@
 import { Link } from "react-router-dom";
+import {
+  FaDiscord,
+  FaReddit,
+  FaInstagram,
+  FaTwitter,
+  FaLinkedin,
+  FaYoutube,
+} from "react-icons/fa";
 
 const footerLinks = {
   product: [
     { name: "Features", href: "#" },
     { name: "Use Cases", href: "/use-cases" },
     { name: "Pricing", href: "/pricing" },
+    { name: "Showcase", href: "/showcase" },
     { name: "Changelog", href: "#" },
   ],
   resources: [
     { name: "Documentation", href: "#" },
-    { name: "Community", href: "#" },
-    { name: "Blog", href: "#" },
     { name: "Tutorials", href: "#" },
+    { name: "Templates", href: "#" },
+    { name: "Videos", href: "#" },
+    { name: "Blog", href: "#" },
   ],
   company: [
     { name: "About", href: "#" },
     { name: "Careers", href: "#" },
     { name: "Contact", href: "#" },
+    { name: "Brand Media Hub", href: "#" },
   ],
   legal: [
-    { name: "Terms", href: "#" },
-    { name: "Privacy", href: "#" },
+    { name: "Privacy Policy", href: "#" },
+    { name: "Terms of Service", href: "#" },
     { name: "Cookies", href: "#" },
+    { name: "Data Processing Agreement (DPA)", href: "#" },
+    { name: "Platform Rules", href: "#" },
+  ],
+  community: [
+    { icon: FaDiscord, name: "Discord", href: "#" },
+    { icon: FaReddit, name: "Reddit", href: "#" },
+    { icon: FaInstagram, name: "Instagram", href: "#" },
+    { icon: FaTwitter, name: "X (Twitter)", href: "#" },
+    { icon: FaLinkedin, name: "LinkedIn", href: "#" },
+    { icon: FaYoutube, name: "YouTube", href: "#" },
   ],
 };
 
@@ -33,23 +54,80 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center">
+              <div className="w-14 h-14 rounded-lg  flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-lg">
-                  P
+                  <img
+                    className="h-full w-14"
+                    src="/images/perfectcodelogo.svg"
+                    alt="footer."
+                  />
                 </span>
               </div>
-              <span className="font-semibold text-lg text-foreground">
+              <span className="font-semibold text-3xl text-foreground">
                 PerfectCode AI
               </span>
             </Link>
-            <p className="text-muted-foreground text-sm">
-              Turn ideas into working apps instantly.
+            <p className="text-muted-foreground text-base font-normal leading-5 font-Poppins">
+              AI App Builder. From Idea to Live App.
             </p>
-            <p className="text-muted-foreground text-sm mt-4">
+            {/* <p className="text-muted-foreground text-sm mt-4">
               support@perfectcode.ai
-            </p>
+            </p> */}
+            <div className="flex items-center gap-2 text-zinc-400 text-base font-normal leading-5 font-Poppins mt-6">
+              {/* <img src="/images/call.svg" alt="call" className="h-4 w-4" />
+              <a
+                href="tel:+447553796307"
+                className="hover:text-[#4F46E5] text-zinc-400 text-base font-normal leading-5 font-Poppins"
+              >
+                +44 7553 796307
+              </a> */}
+            </div>
+            <div className="flex items-center gap-3 text-white/80 mt-3">
+              <img
+                src="/images/mail_outline.svg"
+                alt="mail"
+                className="h-4 w-4"
+              />
+              <a
+                href="mailto:info@dialogsyai.com"
+                className="text-muted-foreground hover:text-foreground text-base font-normal leading-5 font-Poppins"
+              >
+                hello@perfectcode.ai
+              </a>
+            </div>
+            <div className="flex items-center gap-3 text-white/80 mt-3">
+              <img
+                src="/images/mail_outline.svg"
+                alt="mail"
+                className="h-4 w-4"
+              />
+              <a
+                href="mailto:info@dialogsyai.com"
+                className="text-muted-foreground hover:text-foreground text-base font-normal leading-5 font-Poppins"
+              >
+                support@perfectcode.ai
+              </a>
+            </div>
+            <div className="mt-10 flex items-center justify-start gap-4">
+              <img src="/images/soc.svg" alt="SOC 2" className="h-16 w-16" />
+              <img
+                src="/images/iso.svg"
+                alt="ISO 27001"
+                className="h-16 w-16"
+              />
+              <img src="/images/gdp.svg" alt="gdp" className="h-16 w-16" />
+            </div>
+            <div className="bg-[#24273F] inline-flex items-center p-2 pr-5 rounded-md font-sans mt-6">
+              <div className="bg-[#FF6154] flex items-center justify-center w-9 h-9 rounded-full text-white font-bold text-2xl mr-2">
+                P
+              </div>
+              <div className=" text-white">
+                <p className="uppercase text-[8px] font-bold">FEATURED ON</p>
+                <p className="text-xl font-bold mt-[-5px]">Product Hunt</p>
+              </div>
+            </div>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
             {/* Product */}
             <div className="">
               <h4 className="font-semibold text-foreground mb-4">Product</h4>
@@ -117,14 +195,33 @@ export function Footer() {
                 ))}
               </ul>
             </div>
+
+            {/* Community */}
+            <div>
+              <h4 className="font-semibold text-foreground mb-4">Community</h4>
+              <ul className="space-y-2">
+                {footerLinks.community.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      to={link.href}
+                      className="text-muted-foreground hover:text-foreground text-sm transition-colors flex items-center gap-2"
+                    >
+                      <link.icon className="" />
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
         <div className="mt-12 pt-8 border-t border-slate-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-sm">
-            © 2024 PerfectCode.ai. All rights reserved.
+            © 2026 PerfectCode.ai — A product of 10x Galaxy Ltd (UK). All rights
+            reserved.
           </p>
-          <div className="flex items-center gap-4">
+          {/* <div className="flex items-center gap-4">
             <a
               href="#"
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -149,7 +246,16 @@ export function Footer() {
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
               </svg>
             </a>
-          </div>
+          </div> */}
+        </div>
+        <div className="text-center pt-10 w-full">
+          <section className="text-center w-full">
+            <img
+              className="h-full w-auto"
+              src="/images/footerbig.svg"
+              alt="footer."
+            />
+          </section>
         </div>
       </div>
     </footer>
