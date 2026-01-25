@@ -226,7 +226,13 @@ export function DemoSection() {
         <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-32 animate-fade-in-up delay-500">
           <div className="content-card p-6 text-center glow-hover">
             <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl">🧪</span>
+              <span className="text-2xl">
+                <img
+                  className="h-full w-6"
+                  src="/images/sanbox.svg"
+                  alt="sanbox"
+                />
+              </span>
             </div>
             <h3 className="font-semibold text-foreground mb-2">
               Sandbox-first
@@ -237,7 +243,13 @@ export function DemoSection() {
           </div>
           <div className="content-card p-6 text-center glow-hover">
             <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl">✨</span>
+              <span className="text-2xl">
+                <img
+                  className="h-full w-6"
+                  src="/images/workingprev.svg"
+                  alt="working preview"
+                />
+              </span>
             </div>
             <h3 className="font-semibold text-foreground mb-2">
               Working preview every time
@@ -248,7 +260,13 @@ export function DemoSection() {
           </div>
           <div className="content-card p-6 text-center glow-hover">
             <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl">💬</span>
+              <span className="text-2xl">
+                <img
+                  className="h-full w-6"
+                  src="/images/iterate.svg"
+                  alt="iterate chat"
+                />
+              </span>
             </div>
             <h3 className="font-semibold text-foreground mb-2">
               Iterate by chat

@@ -9,50 +9,51 @@ import {
 } from "react-icons/fa";
 
 const footerLinks = {
+  company: [
+    { name: "About", href: "#" },
+    { name: "Contact", href: "#" },
+    { name: "Careers", href: "#" },
+    { name: "Brand Media Hub", href: "#" },
+  ],
   product: [
-    { name: "Features", href: "#" },
-    { name: "Use Cases", href: "/use-cases" },
     { name: "Pricing", href: "/pricing" },
+    { name: "Features", href: "#" },
     { name: "Showcase", href: "/showcase" },
+    { name: "Use Cases", href: "/use-cases" },
     { name: "Changelog", href: "#" },
   ],
   resources: [
-    { name: "Documentation", href: "#" },
+    { name: "Blog", href: "#" },
+    { name: "Videos", href: "#" },
     { name: "Tutorials", href: "#" },
     { name: "Templates", href: "#" },
-    { name: "Videos", href: "#" },
-    { name: "Blog", href: "#" },
+    { name: "Documentation", href: "#" },
   ],
-  company: [
-    { name: "About", href: "#" },
-    { name: "Careers", href: "#" },
-    { name: "Contact", href: "#" },
-    { name: "Brand Media Hub", href: "#" },
-  ],
+
   legal: [
-    { name: "Privacy Policy", href: "#" },
-    { name: "Terms of Service", href: "#" },
+    { name: "DPA", href: "#" },
     { name: "Cookies", href: "#" },
-    { name: "Data Processing Agreement (DPA)", href: "#" },
+    { name: "Privacy Policy", href: "#" },
     { name: "Platform Rules", href: "#" },
+    { name: "Terms of Service", href: "#" },
   ],
   community: [
-    { icon: FaDiscord, name: "Discord", href: "#" },
     { icon: FaReddit, name: "Reddit", href: "#" },
-    { icon: FaInstagram, name: "Instagram", href: "#" },
-    { icon: FaTwitter, name: "X (Twitter)", href: "#" },
+    { icon: FaDiscord, name: "Discord", href: "#" },
     { icon: FaLinkedin, name: "LinkedIn", href: "#" },
     { icon: FaYoutube, name: "YouTube", href: "#" },
+    { icon: FaInstagram, name: "Instagram", href: "#" },
+    { icon: FaTwitter, name: "X (Twitter)", href: "#" },
   ],
 };
 
 export function Footer() {
   return (
     <footer className="border-t border-slate-border bg-slate-zone">
-      <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
+      <div className="container mx-auto px-6 pt-16">
+        <div className="grid grid-cols-1 md:flex justify-between gap-8 ">
           {/* Brand */}
-          <div className="col-span-2 md:col-span-1">
+          <div className="col-span-2 md:col-span-1 md:w-96">
             <Link to="/" className="flex items-center gap-2 mb-4">
               <div className="w-14 h-14 rounded-lg  flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-lg">
@@ -127,7 +128,24 @@ export function Footer() {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
+          <div className="grid grid-cols-2 xl:grid-cols-5 gap-8 ">
+            {/* Company */}
+            <div className="">
+              <h4 className="font-semibold text-foreground mb-4">Company</h4>
+              <ul className="space-y-2">
+                {footerLinks.company.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      to={link.href}
+                      className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             {/* Product */}
             <div className="">
               <h4 className="font-semibold text-foreground mb-4">Product</h4>
@@ -146,7 +164,7 @@ export function Footer() {
             </div>
 
             {/* Resources */}
-            <div>
+            <div className="w-44">
               <h4 className="font-semibold text-foreground mb-4">Resources</h4>
               <ul className="space-y-2">
                 {footerLinks.resources.map((link) => (
@@ -162,25 +180,8 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Company */}
-            <div>
-              <h4 className="font-semibold text-foreground mb-4">Company</h4>
-              <ul className="space-y-2">
-                {footerLinks.company.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      to={link.href}
-                      className="text-muted-foreground hover:text-foreground text-sm transition-colors"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
             {/* Legal */}
-            <div>
+            <div className="">
               <h4 className="font-semibold text-foreground mb-4">Legal</h4>
               <ul className="space-y-2">
                 {footerLinks.legal.map((link) => (
@@ -197,7 +198,7 @@ export function Footer() {
             </div>
 
             {/* Community */}
-            <div>
+            <div className="">
               <h4 className="font-semibold text-foreground mb-4">Community</h4>
               <ul className="space-y-2">
                 {footerLinks.community.map((link) => (
@@ -248,15 +249,15 @@ export function Footer() {
             </a>
           </div> */}
         </div>
-        <div className="text-center pt-10 w-full">
-          <section className="text-center w-full">
-            <img
-              className="h-full w-auto"
-              src="/images/footerbig.svg"
-              alt="footer."
-            />
-          </section>
-        </div>
+      </div>
+      <div className="text-center pt-10 w-full container mx-auto px-6">
+        <section className="text-center w-full">
+          <img
+            className="h-full w-auto opacity-10"
+            src="/images/footeroutline.svg"
+            alt="footer."
+          />
+        </section>
       </div>
     </footer>
   );
