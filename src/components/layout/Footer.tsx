@@ -1,228 +1,231 @@
 import { Link } from "react-router-dom";
 import {
-  FaDiscord,
-  FaReddit,
-  FaInstagram,
-  FaTwitter,
-  FaLinkedin,
-  FaYoutube,
+	FaDiscord,
+	FaReddit,
+	FaInstagram,
+	FaTwitter,
+	FaLinkedin,
+	FaYoutube,
 } from "react-icons/fa";
 
 const footerLinks = {
-  company: [
-    { name: "About", href: "#" },
-    { name: "Contact", href: "#" },
-    { name: "Careers", href: "#" },
-    { name: "Brand Media Hub", href: "#" },
-  ],
-  product: [
-    { name: "Pricing", href: "/pricing" },
-    { name: "Features", href: "#" },
-    { name: "Showcase", href: "/showcase" },
-    { name: "Use Cases", href: "/use-cases" },
-    { name: "Changelog", href: "#" },
-  ],
-  resources: [
-    { name: "Blog", href: "#" },
-    { name: "Videos", href: "#" },
-    { name: "Tutorials", href: "#" },
-    { name: "Templates", href: "#" },
-    { name: "Documentation", href: "#" },
-  ],
+	company: [
+		{ name: "About", href: "#" },
+		{ name: "Contact", href: "#" },
+		{ name: "Careers", href: "#" },
+		{ name: "Brand Media Hub", href: "#" },
+	],
+	product: [
+		{ name: "Pricing", href: "/pricing" },
+		{ name: "Features", href: "#" },
+		{ name: "Showcase", href: "/showcase" },
+		{ name: "Use Cases", href: "/use-cases" },
+		{ name: "Changelog", href: "#" },
+	],
+	resources: [
+		{ name: "Blog", href: "#" },
+		{ name: "Videos", href: "#" },
+		{ name: "Tutorials", href: "#" },
+		{ name: "Templates", href: "#" },
+		{ name: "Documentation", href: "#" },
+	],
 
-  legal: [
-    { name: "DPA", href: "#" },
-    { name: "Cookies", href: "#" },
-    { name: "Privacy Policy", href: "#" },
-    { name: "Platform Rules", href: "#" },
-    { name: "Terms of Service", href: "#" },
-  ],
-  community: [
-    { icon: FaReddit, name: "Reddit", href: "#" },
-    { icon: FaDiscord, name: "Discord", href: "#" },
-    { icon: FaLinkedin, name: "LinkedIn", href: "#" },
-    { icon: FaYoutube, name: "YouTube", href: "#" },
-    { icon: FaInstagram, name: "Instagram", href: "#" },
-    { icon: FaTwitter, name: "X (Twitter)", href: "#" },
-  ],
+	legal: [
+		{ name: "DPA", href: "#" },
+		{ name: "Cookies", href: "#" },
+		{ name: "Privacy Policy", href: "#" },
+		{ name: "Platform Rules", href: "#" },
+		{ name: "Terms of Service", href: "#" },
+	],
+	community: [
+		{ icon: FaReddit, name: "Reddit", href: "#" },
+		{ icon: FaDiscord, name: "Discord", href: "#" },
+		{ icon: FaLinkedin, name: "LinkedIn", href: "#" },
+		{ icon: FaYoutube, name: "YouTube", href: "#" },
+		{ icon: FaInstagram, name: "Instagram", href: "#" },
+		{ icon: FaTwitter, name: "X (Twitter)", href: "#" },
+	],
 };
 
 export function Footer() {
-  return (
-    <footer className="border-t border-slate-border bg-slate-zone">
-      <div className="container mx-auto px-6 pt-16">
-        <div className="grid grid-cols-1 md:flex justify-between gap-8 ">
-          {/* Brand */}
-          <div className="col-span-2 md:col-span-1 md:w-96">
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-14 h-14 rounded-lg  flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">
-                  <img
-                    className="h-full w-14"
-                    src="/images/perfectcodelogo.svg"
-                    alt="footer."
-                  />
-                </span>
-              </div>
-              <span className="font-semibold text-3xl text-foreground">
-                PerfectCode AI
-              </span>
-            </Link>
-            <p className="text-muted-foreground text-base font-normal leading-5 font-Poppins">
-              AI App Builder. From Idea to Live App.
-            </p>
-            {/* <p className="text-muted-foreground text-sm mt-4">
+	return (
+		<footer className="border-t border-slate-border bg-slate-zone">
+			<div className="container mx-auto px-6 pt-16">
+				<div className="grid grid-cols-1 md:flex justify-between gap-8 ">
+					{/* Brand */}
+					<div className="col-span-2 md:col-span-1 md:w-96">
+						<Link
+							to="/"
+							className="flex items-center gap-2 mb-4">
+							<div className="w-14 h-14 rounded-lg  flex items-center justify-center">
+								<span className="text-primary-foreground font-bold text-lg">
+									<img
+										className="h-full w-14"
+										src="/images/perfectcodelogo.svg"
+										alt="footer."
+									/>
+								</span>
+							</div>
+							<span className="font-semibold text-3xl text-foreground">
+								PerfectCode AI
+							</span>
+						</Link>
+						<p className="text-muted-foreground text-base font-normal leading-5 font-Poppins">
+							AI App Builder. From Idea to Live App.
+						</p>
+						{/* <p className="text-muted-foreground text-sm mt-4">
               support@perfectcode.ai
             </p> */}
-            <div className="flex items-center gap-2 text-zinc-400 text-base font-normal leading-5 font-Poppins mt-6">
-              {/* <img src="/images/call.svg" alt="call" className="h-4 w-4" />
+						<div className="flex items-center gap-2 text-zinc-400 text-base font-normal leading-5 font-Poppins mt-6">
+							{/* <img src="/images/call.svg" alt="call" className="h-4 w-4" />
               <a
                 href="tel:+447553796307"
                 className="hover:text-[#4F46E5] text-zinc-400 text-base font-normal leading-5 font-Poppins"
               >
                 +44 7553 796307
               </a> */}
-            </div>
-            <div className="flex items-center gap-3 text-white/80 mt-3">
-              <img
-                src="/images/mail_outline.svg"
-                alt="mail"
-                className="h-4 w-4"
-              />
-              <a
-                href="mailto:info@dialogsyai.com"
-                className="text-muted-foreground hover:text-foreground text-base font-normal leading-5 font-Poppins"
-              >
-                hello@perfectcode.ai
-              </a>
-            </div>
-            <div className="flex items-center gap-3 text-white/80 mt-3">
-              <img
-                src="/images/mail_outline.svg"
-                alt="mail"
-                className="h-4 w-4"
-              />
-              <a
-                href="mailto:info@dialogsyai.com"
-                className="text-muted-foreground hover:text-foreground text-base font-normal leading-5 font-Poppins"
-              >
-                support@perfectcode.ai
-              </a>
-            </div>
-            <div className="mt-10 flex items-center justify-start gap-4">
-              <img src="/images/soc.svg" alt="SOC 2" className="h-16 w-16" />
-              <img
-                src="/images/iso.svg"
-                alt="ISO 27001"
-                className="h-16 w-16"
-              />
-              <img src="/images/gdp.svg" alt="gdp" className="h-16 w-16" />
-            </div>
-            <div className="bg-[#24273F] inline-flex items-center p-2 pr-5 rounded-md font-sans mt-6">
-              <div className="bg-[#FF6154] flex items-center justify-center w-9 h-9 rounded-full text-white font-bold text-2xl mr-2">
-                P
-              </div>
-              <div className=" text-white">
-                <p className="uppercase text-[8px] font-bold">FEATURED ON</p>
-                <p className="text-xl font-bold mt-[-5px]">Product Hunt</p>
-              </div>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 xl:grid-cols-5 gap-8 ">
-            {/* Company */}
-            <div className="">
-              <h4 className="font-semibold text-foreground mb-4">Company</h4>
-              <ul className="space-y-2">
-                {footerLinks.company.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      to={link.href}
-                      className="text-muted-foreground hover:text-foreground text-sm transition-colors"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+						</div>
+						<div className="flex items-center gap-3 text-white/80 mt-3">
+							<img
+								src="/images/mail_outline.svg"
+								alt="mail"
+								className="h-4 w-4"
+							/>
+							<a
+								href="mailto:info@dialogsyai.com"
+								className="text-muted-foreground hover:text-foreground text-base font-normal leading-5 font-Poppins">
+								hello@perfectcode.ai
+							</a>
+						</div>
+						<div className="flex items-center gap-3 text-white/80 mt-3">
+							<img
+								src="/images/mail_outline.svg"
+								alt="mail"
+								className="h-4 w-4"
+							/>
+							<a
+								href="mailto:info@dialogsyai.com"
+								className="text-muted-foreground hover:text-foreground text-base font-normal leading-5 font-Poppins">
+								support@perfectcode.ai
+							</a>
+						</div>
+						<div className="mt-10 flex items-center justify-start gap-4">
+							<img
+								src="/images/soc.svg"
+								alt="SOC 2"
+								className="h-16 w-16"
+							/>
+							<img
+								src="/images/iso.svg"
+								alt="ISO 27001"
+								className="h-16 w-16"
+							/>
+							<img
+								src="/images/gdp.svg"
+								alt="gdp"
+								className="h-16 w-16"
+							/>
+						</div>
+						<div className="bg-[#24273F] inline-flex items-center p-2 pr-5 rounded-md font-sans mt-6">
+							<div className="bg-[#FF6154] flex items-center justify-center w-9 h-9 rounded-full text-white font-bold text-2xl mr-2">
+								P
+							</div>
+							<div className=" text-white">
+								<p className="uppercase text-[8px] font-bold">FEATURED ON</p>
+								<p className="text-xl font-bold mt-[-5px]">Product Hunt</p>
+							</div>
+						</div>
+					</div>
+					<div className="grid grid-cols-2 lg:grid-cols-5 gap-8 ">
+						{/* Company */}
+						<div className="">
+							<h4 className="font-semibold text-foreground mb-4">Company</h4>
+							<ul className="space-y-2">
+								{footerLinks.company.map((link) => (
+									<li key={link.name}>
+										<Link
+											to={link.href}
+											className="text-muted-foreground hover:text-foreground text-sm transition-colors">
+											{link.name}
+										</Link>
+									</li>
+								))}
+							</ul>
+						</div>
 
-            {/* Product */}
-            <div className="">
-              <h4 className="font-semibold text-foreground mb-4">Product</h4>
-              <ul className="space-y-2">
-                {footerLinks.product.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      to={link.href}
-                      className="text-muted-foreground hover:text-foreground text-sm transition-colors"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+						{/* Product */}
+						<div className="">
+							<h4 className="font-semibold text-foreground mb-4">Product</h4>
+							<ul className="space-y-2">
+								{footerLinks.product.map((link) => (
+									<li key={link.name}>
+										<Link
+											to={link.href}
+											className="text-muted-foreground hover:text-foreground text-sm transition-colors">
+											{link.name}
+										</Link>
+									</li>
+								))}
+							</ul>
+						</div>
 
-            {/* Resources */}
-            <div className="w-44">
-              <h4 className="font-semibold text-foreground mb-4">Resources</h4>
-              <ul className="space-y-2">
-                {footerLinks.resources.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      to={link.href}
-                      className="text-muted-foreground hover:text-foreground text-sm transition-colors"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+						{/* Resources */}
+						<div className="w-44">
+							<h4 className="font-semibold text-foreground mb-4">Resources</h4>
+							<ul className="space-y-2">
+								{footerLinks.resources.map((link) => (
+									<li key={link.name}>
+										<Link
+											to={link.href}
+											className="text-muted-foreground hover:text-foreground text-sm transition-colors">
+											{link.name}
+										</Link>
+									</li>
+								))}
+							</ul>
+						</div>
 
-            {/* Legal */}
-            <div className="">
-              <h4 className="font-semibold text-foreground mb-4">Legal</h4>
-              <ul className="space-y-2">
-                {footerLinks.legal.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      to={link.href}
-                      className="text-muted-foreground hover:text-foreground text-sm transition-colors"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+						{/* Legal */}
+						<div className="">
+							<h4 className="font-semibold text-foreground mb-4">Legal</h4>
+							<ul className="space-y-2">
+								{footerLinks.legal.map((link) => (
+									<li key={link.name}>
+										<Link
+											to={link.href}
+											className="text-muted-foreground hover:text-foreground text-sm transition-colors">
+											{link.name}
+										</Link>
+									</li>
+								))}
+							</ul>
+						</div>
 
-            {/* Community */}
-            <div className="">
-              <h4 className="font-semibold text-foreground mb-4">Community</h4>
-              <ul className="space-y-2">
-                {footerLinks.community.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      to={link.href}
-                      className="text-muted-foreground hover:text-foreground text-sm transition-colors flex items-center gap-2"
-                    >
-                      <link.icon className="" />
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
+						{/* Community */}
+						<div className="">
+							<h4 className="font-semibold text-foreground mb-4">Community</h4>
+							<ul className="space-y-2">
+								{footerLinks.community.map((link) => (
+									<li key={link.name}>
+										<Link
+											to={link.href}
+											className="text-muted-foreground hover:text-foreground text-sm transition-colors flex items-center gap-2">
+											<link.icon className="" />
+											{link.name}
+										</Link>
+									</li>
+								))}
+							</ul>
+						</div>
+					</div>
+				</div>
 
-        <div className="mt-12 pt-8 border-t border-slate-border flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-muted-foreground text-sm">
-            © 2026 PerfectCode.ai — A product of 10x Galaxy Ltd (UK). All rights
-            reserved.
-          </p>
-          {/* <div className="flex items-center gap-4">
+				<div className="mt-12 pt-8 border-t border-slate-border flex flex-col md:flex-row justify-between items-center gap-4">
+					<p className="text-muted-foreground text-sm">
+						© 2026 PerfectCode.ai — A product of 10x Galaxy Ltd (UK). All rights
+						reserved.
+					</p>
+					{/* <div className="flex items-center gap-4">
             <a
               href="#"
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -248,17 +251,17 @@ export function Footer() {
               </svg>
             </a>
           </div> */}
-        </div>
-      </div>
-      <div className="text-center pt-10 w-full container mx-auto px-6">
-        <section className="text-center w-full">
-          <img
-            className="h-full w-auto opacity-10"
-            src="/images/footeroutline.svg"
-            alt="footer."
-          />
-        </section>
-      </div>
-    </footer>
-  );
+				</div>
+			</div>
+			<div className="text-center pt-10 w-full container mx-auto px-6">
+				<section className="text-center w-full">
+					<img
+						className="h-full w-auto opacity-10"
+						src="/images/footeroutline.svg"
+						alt="footer."
+					/>
+				</section>
+			</div>
+		</footer>
+	);
 }
