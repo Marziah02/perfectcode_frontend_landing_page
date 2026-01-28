@@ -84,7 +84,7 @@ export function DemoSection() {
         </div>
 
         {/* <div className="grid lg:grid-cols-2 gap-12 items-center"> */}
-        <div className=" items-center">
+        <div className=" items-center flex justify-center w-full lg:max-w-4xl xl:max-w-5xl 2xl:max-w-full mx-auto">
           {/* Video placeholder */}
           <div className="content-card p-2 glow-primary">
             <div className="aspect-video rounded-xl bg-card-foreground/5 flex items-center justify-center relative overflow-hidden group">

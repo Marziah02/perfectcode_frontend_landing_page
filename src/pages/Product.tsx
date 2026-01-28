@@ -24,8 +24,11 @@ import {
   Briefcase,
   User,
   ArrowRight,
+  ShieldCheck,
+  ChevronRight,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 // Section 1 - Product Hero
 function ProductHero() {
@@ -315,13 +318,87 @@ function WhatYouCanBuildSection() {
 }
 
 // Section 5 - Why PerfectCode Is Different
+// const differentiators = [
+//   { icon: Code, text: "Real code, not no-code" },
+//   { icon: Monitor, text: "Live sandbox preview" },
+//   { icon: Package, text: "Production-ready output" },
+//   { icon: GitBranch, text: "Version control" },
+//   { icon: Wand2, text: "AI copilot for editing" },
+// ];
+
 const differentiators = [
-  { icon: Code, text: "Real code, not no-code" },
-  { icon: Monitor, text: "Live sandbox preview" },
-  { icon: Package, text: "Production-ready output" },
-  { icon: GitBranch, text: "Version control" },
-  { icon: Wand2, text: "AI copilot for editing" },
+  {
+    icon: Code,
+    title: "Real code, not no-code",
+    description:
+      "Export clean, standard React/HTML code that your team can actually maintain and scale.",
+    glow: "group-hover:shadow-blue-500/20",
+    image:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
+  },
+  {
+    icon: Monitor,
+    title: "Live sandbox preview",
+    description:
+      "See your changes instantly in a high-fidelity browser environment with hot-reloading.",
+    glow: "group-hover:shadow-purple-500/20",
+    image:
+      "https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&q=80&w=800",
+  },
+  {
+    icon: Package,
+    title: "Production-ready",
+    description:
+      "Automated bundling and optimization ensures your code is ready for the real world.",
+    glow: "group-hover:shadow-orange-500/20",
+    image:
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800",
+  },
+  {
+    icon: GitBranch,
+    title: "Version control",
+    description:
+      "Built-in branching and merging logic designed specifically for collaborative AI generation.",
+    glow: "group-hover:shadow-emerald-500/20",
+    image:
+      "https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&q=80&w=800",
+  },
+  {
+    icon: Wand2,
+    title: "AI copilot for editing",
+    description:
+      "Don't just generate—iterate. Refine specific components or logic with natural language.",
+    glow: "group-hover:shadow-indigo-500/20",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Security first",
+    description:
+      "Enterprise-grade sandboxing keeps your data and generated code safe from vulnerabilities.",
+    glow: "group-hover:shadow-rose-500/20",
+    image:
+      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
+  },
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 30, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  },
+};
 
 function WhyDifferentSection() {
   return (
@@ -332,7 +409,7 @@ function WhyDifferentSection() {
             Why PerfectCode Is Different
           </h2>
         </div>
-        <div className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
+        {/* <div className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
           {differentiators.map((item) => (
             <div
               key={item.text}
@@ -342,7 +419,60 @@ function WhyDifferentSection() {
               <span className="text-foreground font-medium">{item.text}</span>
             </div>
           ))}
-        </div>
+        </div> */}
+        {/* Feature Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+        >
+          {differentiators.map((item, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              whileHover={{ scale: 1.02, y: -5 }}
+              className={`group relative p-8 rounded-2xl overflow-hidden border border-white/[0.08] transition-all duration-500 ${item.glow} hover:border-white/20 hover:shadow-2xl`}
+            >
+              {/* Individual Card Background Image */}
+              <div className="absolute inset-0 z-0 transition-transform duration-700 group-hover:scale-110">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover opacity-20 grayscale group-hover:grayscale-0 transition-all duration-700"
+                />
+                {/* Overlays for glass effect */}
+                <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-md"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-slate-950/40 to-slate-950/90"></div>
+              </div>
+
+              {/* Content - Relative to be above bg image */}
+              <div className="relative z-10">
+                <div className="relative w-12 h-12 mb-8">
+                  <div className="absolute inset-0 bg-blue-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <item.icon
+                    className="relative w-full h-full text-[#8044e2] group-hover:text-white transition-colors duration-300"
+                    strokeWidth={1.5}
+                  />
+                </div>
+
+                <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-[#8044e2] transition-colors">
+                  {item.title}
+                </h3>
+
+                <p className="text-slate-400 group-hover:text-slate-200 leading-relaxed text-sm mb-6 transition-colors">
+                  {item.description}
+                </p>
+
+                {/* <div className="flex items-center gap-2 text-xs font-bold text-blue-500/50 group-hover:text-blue-400 tracking-widest uppercase transition-colors">
+                  Details{" "}
+                  <ChevronRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
+                </div> */}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
