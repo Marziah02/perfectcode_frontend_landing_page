@@ -30,7 +30,7 @@ export function Header() {
               </span>
             </div>
             <span className="font-semibold text-lg text-foreground">
-              PerfectCode AI
+              PerfectCode <span className="gradient-text">AI</span>
             </span>
           </Link>
 

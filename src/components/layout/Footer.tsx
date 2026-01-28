@@ -51,9 +51,9 @@ export function Footer() {
   return (
     <footer className="border-t border-slate-border bg-slate-zone">
       <div className="container mx-auto px-6 pt-16">
-        <div className="grid grid-cols-1 md:flex justify-between gap-8 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
           {/* Brand */}
-          <div className="col-span-2 md:col-span-1 md:w-96">
+          <div className="col-span-2 md:col-span-1 ">
             <Link to="/" className="flex items-center gap-2 mb-4">
               <div className="w-14 h-14 rounded-lg  flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-lg">
@@ -65,7 +65,7 @@ export function Footer() {
                 </span>
               </div>
               <span className="font-semibold text-3xl text-foreground">
-                PerfectCode AI
+                PerfectCode <span className="gradient-text">AI</span>
               </span>
             </Link>
             <p className="text-muted-foreground text-base font-normal leading-5 font-Poppins">
@@ -109,7 +109,7 @@ export function Footer() {
                 support@perfectcode.ai
               </a>
             </div>
-            <div className="mt-10 flex items-center justify-start gap-4">
+            {/* <div className="mt-10 flex items-center justify-start gap-4">
               <img src="/images/soc.svg" alt="SOC 2" className="h-16 w-16" />
               <img
                 src="/images/iso.svg"
@@ -117,7 +117,7 @@ export function Footer() {
                 className="h-16 w-16"
               />
               <img src="/images/gdp.svg" alt="gdp" className="h-16 w-16" />
-            </div>
+            </div> */}
             <div className="bg-[#24273F] inline-flex items-center p-2 pr-5 rounded-md font-sans mt-6">
               <div className="bg-[#FF6154] flex items-center justify-center w-9 h-9 rounded-full text-white font-bold text-2xl mr-2">
                 P
@@ -128,7 +128,7 @@ export function Footer() {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-2 xl:grid-cols-5 gap-8 ">
+          <div className="grid grid-cols-2 lg:grid-cols-4 xl:gap-10 gap-6">
             {/* Company */}
             <div className="">
               <h4 className="font-semibold text-foreground mb-4">Company</h4>
@@ -164,7 +164,7 @@ export function Footer() {
             </div>
 
             {/* Resources */}
-            <div className="w-44">
+            {/* <div className="w-44">
               <h4 className="font-semibold text-foreground mb-4">Resources</h4>
               <ul className="space-y-2">
                 {footerLinks.resources.map((link) => (
@@ -178,7 +178,7 @@ export function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </div> */}
 
             {/* Legal */}
             <div className="">
@@ -217,7 +217,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-slate-border flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-8 pt-8 border-t border-slate-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-sm">
             © 2026 PerfectCode.ai — A product of 10x Galaxy Ltd (UK). All rights
             reserved.
