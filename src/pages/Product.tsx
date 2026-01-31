@@ -26,6 +26,8 @@ import {
   ArrowRight,
   ShieldCheck,
   ChevronRight,
+  Code2,
+  LineChart,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -480,34 +482,115 @@ function WhyDifferentSection() {
 
 // Section 6 - Who It's For
 const audiences = [
-  { icon: Rocket, title: "Founders" },
-  { icon: Building2, title: "Startups" },
-  { icon: Briefcase, title: "Agencies" },
-  { icon: Users, title: "Product teams" },
-  { icon: User, title: "Solo builders" },
+  { icon: Rocket, title: "Founders", desc: "Launch faster with clarity" },
+  { icon: Building2, title: "Startups", desc: "Scale with confidence" },
+  { icon: Briefcase, title: "Agencies", desc: "Deliver client work quicker" },
+  { icon: Users, title: "Product Teams", desc: "Ship features consistently" },
+  { icon: User, title: "Solo Builders", desc: "Build without overhead" },
+  {
+    icon: ShieldCheck,
+    title: "Enterprise",
+    desc: "Secure & compliant delivery",
+  },
+  { icon: Code2, title: "Developers", desc: "Clean DX, fewer blockers" },
+  {
+    icon: LineChart,
+    title: "Growth Teams",
+    desc: "Optimize & iterate rapidly",
+  },
 ];
 
 function WhoItsForSection() {
   return (
-    <section className="py-24 relative">
+    <section className="relative py-24 overflow-hidden">
+      {/* Night mood background */}
+      <div className="absolute inset-0 -z-10 bg-[#060914]" />
+      <div className="absolute inset-0 -z-10 opacity-60">
+        <div className="absolute -top-24 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-gradient-to-r from-fuchsia-500/25 via-cyan-400/20 to-indigo-500/25 blur-3xl" />
+        <div className="absolute -bottom-28 right-[-80px] h-[420px] w-[420px] rounded-full bg-gradient-to-r from-cyan-500/15 via-indigo-500/20 to-fuchsia-500/15 blur-3xl" />
+      </div>
+
+      {/* Subtle grid overlay */}
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.12]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(255,255,255,0.10) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.10) 1px, transparent 1px)",
+          backgroundSize: "44px 44px",
+          maskImage:
+            "radial-gradient(circle at center, black 55%, transparent 100%)",
+          WebkitMaskImage:
+            "radial-gradient(circle at center, black 55%, transparent 100%)",
+        }}
+      />
+
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-            Who It's For
+        {/* Header */}
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/80" />
+            Built for teams who ship
+          </div>
+
+          <h2 className="mt-4 text-3xl md:text-4xl font-semibold tracking-tight text-white">
+            Who It’s For
           </h2>
+          <p className="mt-3 text-sm md:text-base text-white/65 max-w-2xl mx-auto">
+            From solo makers to enterprise teams — a clean, modern workflow that
+            looks great in night mode.
+          </p>
         </div>
-        <div className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
-          {audiences.map((audience) => (
-            <div
-              key={audience.title}
-              className="content-card px-6 py-4 glow-hover flex items-center gap-3"
-            >
-              <audience.icon className="w-5 h-5 text-primary" />
-              <span className="text-foreground font-medium">
-                {audience.title}
-              </span>
-            </div>
-          ))}
+
+        {/* Even responsive grid */}
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {audiences.map((a) => (
+              <div
+                key={a.title}
+                className="
+                  group relative rounded-2xl border border-white/10
+                  bg-white/[0.04] p-5
+                  shadow-[0_0_0_1px_rgba(255,255,255,0.02)]
+                  backdrop-blur
+                  transition
+                  hover:-translate-y-0.5 hover:border-white/20
+                  hover:bg-white/[0.06]
+                "
+              >
+                {/* glow */}
+                <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition">
+                  <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-fuchsia-500/20 via-cyan-400/15 to-indigo-500/20 blur-xl" />
+                </div>
+
+                <div className="relative flex items-start gap-4">
+                  <div
+                    className="
+                      grid h-11 w-11 place-items-center rounded-xl
+                      border border-white/10
+                      bg-gradient-to-b from-white/[0.08] to-white/[0.03]
+                    "
+                  >
+                    <a.icon className="h-5 w-5 text-cyan-300/90" />
+                  </div>
+
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-2">
+                      <h3 className="text-base font-semibold text-white">
+                        {a.title}
+                      </h3>
+                      <span className="h-1.5 w-1.5 rounded-full bg-white/20" />
+                    </div>
+                    <p className="mt-1 text-sm text-white/65 leading-relaxed">
+                      {a.desc}
+                    </p>
+                  </div>
+                </div>
+
+                {/* bottom accent line */}
+                <div className="relative mt-4 h-px w-full bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
