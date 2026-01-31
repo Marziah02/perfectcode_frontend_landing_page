@@ -179,7 +179,7 @@ function HowItWorksSection() {
             {steps.map((step, index) => (
               <div key={step.number} className="relative">
                 {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-primary/50 to-transparent" />
+                  <div className="hidden lg:block absolute top-8 left-36 w-full h-0.5 bg-gradient-to-r from-primary/50 to-transparent" />
                 )}
                 <div className="text-center">
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent text-white font-bold text-xl mb-4">
@@ -442,10 +442,11 @@ function WhyDifferentSection() {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover opacity-20 grayscale group-hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-full object-cover opacity-100 grayscale group-hover:grayscale-0 transition-all duration-700"
                 />
                 {/* Overlays for glass effect */}
-                <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-md"></div>
+                {/* <div className="absolute inset-0 bg-slate-950/60  backdrop-blur-sm"></div> */}
+                <div className="absolute inset-0 bg-slate-950/60"></div>
                 <div className="absolute inset-0 bg-gradient-to-br from-transparent via-slate-950/40 to-slate-950/90"></div>
               </div>
 
