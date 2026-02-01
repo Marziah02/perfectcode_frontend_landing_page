@@ -10,22 +10,22 @@ import { FAQSection } from "@/components/home/FAQSection";
 import { CTASection } from "@/components/home/CTASection";
 
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main>
-        <HeroSection />
-        <DemoSection />
-        <CommunitySection />
-        <PlatformSection />
-        <FeaturesSection />
-        <ComparisonSection />
-        <FAQSection />
-        <CTASection />
-      </main>
-      <Footer />
-    </div>
-  );
+	return (
+		<div className="min-h-screen bg-background">
+			<Header />
+			<main>
+				<HeroSection />
+				<DemoSection />
+				<CommunitySection />
+				<PlatformSection />
+				<FeaturesSection />
+				<ComparisonSection />
+				<FAQSection />
+				<CTASection />
+			</main>
+			<Footer />
+		</div>
+	);
 };
 
 export default Index;

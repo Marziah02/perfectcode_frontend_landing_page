@@ -22,40 +22,98 @@ import AdminFlags from "./pages/admin/AdminFlags";
 import AdminContent from "./pages/admin/AdminContent";
 import AdminSupport from "./pages/admin/AdminSupport";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/use-cases" element={<UseCases />} />
-          <Route path="/product" element={<Product />} />
-          <Route path="/enterprise" element={<Enterprise />} />
-          <Route path="/resources" element={<Resources />} />
-          <Route path="/showcase" element={<Showcase />} />
-          <Route path="/showcase/:appSlug" element={<ShowcaseDetail />} />
-          <Route path="/app" element={<AppPage />} />
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<Overview />} />
-            <Route path="users" element={<AdminUsers />} />
-            <Route path="projects" element={<AdminProjects />} />
-            <Route path="usage" element={<AdminUsage />} />
-            <Route path="deployments" element={<AdminDeployments />} />
-            <Route path="flags" element={<AdminFlags />} />
-            <Route path="content" element={<AdminContent />} />
-            <Route path="support" element={<AdminSupport />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+	<QueryClientProvider client={queryClient}>
+		<TooltipProvider>
+			<Toaster />
+			<Sonner />
+			<BrowserRouter>
+				<ScrollToTop />
+				<Routes>
+					<Route
+						path="/"
+						element={<Index />}
+					/>
+					<Route
+						path="/pricing"
+						element={<Pricing />}
+					/>
+					<Route
+						path="/use-cases"
+						element={<UseCases />}
+					/>
+					<Route
+						path="/product"
+						element={<Product />}
+					/>
+					<Route
+						path="/enterprise"
+						element={<Enterprise />}
+					/>
+					<Route
+						path="/resources"
+						element={<Resources />}
+					/>
+					<Route
+						path="/showcase"
+						element={<Showcase />}
+					/>
+					<Route
+						path="/showcase/:appSlug"
+						element={<ShowcaseDetail />}
+					/>
+					<Route
+						path="/app"
+						element={<AppPage />}
+					/>
+					<Route
+						path="/admin"
+						element={<AdminLayout />}>
+						<Route
+							index
+							element={<Overview />}
+						/>
+						<Route
+							path="users"
+							element={<AdminUsers />}
+						/>
+						<Route
+							path="projects"
+							element={<AdminProjects />}
+						/>
+						<Route
+							path="usage"
+							element={<AdminUsage />}
+						/>
+						<Route
+							path="deployments"
+							element={<AdminDeployments />}
+						/>
+						<Route
+							path="flags"
+							element={<AdminFlags />}
+						/>
+						<Route
+							path="content"
+							element={<AdminContent />}
+						/>
+						<Route
+							path="support"
+							element={<AdminSupport />}
+						/>
+					</Route>
+					<Route
+						path="*"
+						element={<NotFound />}
+					/>
+				</Routes>
+			</BrowserRouter>
+		</TooltipProvider>
+	</QueryClientProvider>
 );
 
 export default App;
